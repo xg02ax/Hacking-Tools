@@ -9,7 +9,7 @@ import sys  ###allows access to system-specific parameters and functions
 from datetime import datetime ###gets time within the script
 
 
-CLAIR_PATH = "/Users/geovanniarroyoLacen/go/bin/clair-scanner"
+CLAIR_PATH = "<path for clair scanner>"
 parser = argparse.ArgumentParser() ###initializes the parse so you can add custom arguments
 parser.add_argument('host') ###gets host IP which is needed to be passed to our script
 args = parser.parse_args()
@@ -48,7 +48,7 @@ def port_scanner():
 
 def image_scanner(): ### fuction to run clair in the command line once the script has been called
     try:
-            result = subprocess.run(["{}".format(CLAIR_PATH), "--report=""/Users/geovanniarroyolacen/TOOLS/TOOLS_code/temp.json""", "--ip", "192.168.1.5", "vulnerables/web-dvwa"], capture_output=True, text=True) ##here you need to put the absolute path to your clair-scanner dir, your local IP and the image being scanned
+            result = subprocess.run(["{}".format(CLAIR_PATH), "--report=""<path to where you want your scan results to be saved>""", "--ip", "<target IP>", "<image used by target container>"], capture_output=True, text=True) ##here you need to put the absolute path to your clair-scanner dir, your local IP and the image being scanned
             print(result.stdout)
             print(result.stderr)
     except FileNotFoundError:
